@@ -138,21 +138,21 @@ main .hero a.button:any-link {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--dark-color)),
-    0 0 20px rgb(255 107 26 / 45%);
+    0 0 20px rgb(0 180 255 / 45%);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 main .hero a.button:any-link:hover {
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--dark-color)),
-    0 0 32px rgb(255 107 26 / 60%);
+    0 0 32px rgb(0 180 255 / 60%);
   text-decoration: none;
 }
 
 main .hero a.button:any-link:active {
   transform: translateY(0);
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color)),
-    0 0 14px rgb(255 107 26 / 35%);
+    0 0 14px rgb(0 180 255 / 35%);
 }
 
 /* primary button on hero — accent bg, dark text */

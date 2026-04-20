@@ -11,7 +11,7 @@
   --text-color: #0f1a14;
   --text-color-muted: #7a8a80;
   --text-color-subtle: #3d4f45;
-  --accent-color: #ff6b1a;
+  --accent-color: #00b4ff;
   --light-color: #f0ece4;
   --dark-color: #0f1a14;
   --cream-color: #f5f0e8;
@@ -64,8 +64,8 @@
   --btn-shadow: var(--accent-color);
 
   /* links */
-  --link-color: #ff6b1a;
-  --link-hover-color: #e85a0e;
+  --link-color: #00b4ff;
+  --link-hover-color: #0090cc;
 
   /* transitions */
   --transition-fast: 0.15s;
@@ -386,21 +386,21 @@ a.button:any-link {
   text-overflow: ellipsis;
   white-space: nowrap;
   box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color)),
-    0 0 20px rgb(255 107 26 / 45%);
+    0 0 20px rgb(0 180 255 / 45%);
   transition: var(--button-transition);
 }
 
 a.button:hover {
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color)),
-    0 0 32px rgb(255 107 26 / 60%);
+    0 0 32px rgb(0 180 255 / 60%);
   text-decoration: none;
 }
 
 a.button:active {
   transform: translate(0, 0);
   box-shadow: 0 0 0 0 var(--btn-shadow, var(--accent-color)),
-    0 0 14px rgb(255 107 26 / 35%);
+    0 0 14px rgb(0 180 255 / 35%);
 }
 
 

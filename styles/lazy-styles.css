@@ -6,7 +6,7 @@
 
 /* --- Local design tokens --- */
 .tabs-container {
-  --tabs-accent: var(--accent-color, rgb(232 101 26));
+  --tabs-accent: var(--accent-color, rgb(0 180 255));
   --tabs-text: var(--dark-color, rgb(15 26 20));
   --tabs-muted: var(--text-color-muted, rgb(122 138 128));
   --tabs-inactive: var(--border-color, rgb(200 194 184));
