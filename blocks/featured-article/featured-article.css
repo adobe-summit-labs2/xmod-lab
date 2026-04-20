@@ -41,9 +41,62 @@
   gap: var(--gap-xs);
 }
 
-/* tag pill — uses .tag-pill utility from styles.css */
+/* Vegas-style neon animations */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #e8651a,
+      0 0 80px #e8651a;
+    box-shadow:
+      0 0 7px #e8651a,
+      0 0 20px #e8651a,
+      inset 0 0 10px rgb(232 101 26 / 30%);
+  }
+
+  20%, 24%, 55% {
+    text-shadow: none;
+    box-shadow: 0 0 4px #e8651a;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 5px #e8651a,
+      0 0 15px #e8651a,
+      0 0 30px rgb(232 101 26 / 40%);
+  }
+
+  50% {
+    box-shadow:
+      0 0 10px #ff6b2b,
+      0 0 25px #ff6b2b,
+      0 0 50px rgb(255 107 43 / 50%),
+      0 0 80px rgb(255 107 43 / 20%);
+  }
+}
+
+/* tag pill — Vegas neon style */
 .featured-article .tag-pill {
   width: fit-content;
+  background: linear-gradient(135deg, #e8651a, #ff3e8a, #e8651a);
+  background-size: 200% 200%;
+  animation: neon-flicker 4s infinite alternate;
+  border: 1px solid rgb(255 255 255 / 30%);
+  text-transform: uppercase;
 }
 
 /* also support em tag pills */
@@ -67,7 +120,7 @@
   border-top: 1px solid var(--border-color-light);
 }
 
-/* style link as dark button */
+/* style link as Vegas neon button */
 .featured-article .featured-article-content p:last-child a:any-link {
   display: flex;
   align-items: center;
@@ -77,22 +130,46 @@
   font-weight: 700;
   letter-spacing: 0.98px;
   text-decoration: none;
+  text-transform: uppercase;
   padding: var(--gap-xs) var(--gap-xl);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+  border: 2px solid #e8651a;
   border-radius: var(--button-border-radius);
-  box-shadow: 3px 3px 0 var(--accent-color);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  animation: neon-pulse 2s ease-in-out infinite;
+  transition: transform 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-article .featured-article-content p:last-child a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 20%),
+    transparent
+  );
+  animation: shimmer 3s infinite;
 }
 
 .featured-article .featured-article-content p:last-child a:hover {
-  transform: translateY(-2px);
-  box-shadow: 5px 5px 0 var(--accent-color);
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #e8651a, #ff3e8a);
+  box-shadow:
+    0 0 15px #e8651a,
+    0 0 30px #ff3e8a,
+    0 0 60px rgb(232 101 26 / 50%);
 }
 
 .featured-article .featured-article-content p:last-child a:active {
-  transform: translateY(0);
-  box-shadow: 0 0 0 var(--accent-color);
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 0 5px #e8651a;
 }
 
 @media (width >= 768px) {
