@@ -152,28 +152,109 @@ main .hero a.button:any-link:active {
   box-shadow: 0 0 0 var(--btn-shadow, var(--dark-color));
 }
 
-/* primary button on hero — accent bg, dark text */
+/* === Vegas-style animated hero buttons === */
+
+@keyframes vegas-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgb(255 59 148 / 60%),
+      0 0 20px rgb(255 59 148 / 30%),
+      3px 3px 0 0 #ff3b94;
+  }
+
+  50% {
+    box-shadow:
+      0 0 16px rgb(255 59 148 / 80%),
+      0 0 40px rgb(255 59 148 / 40%),
+      0 0 60px rgb(255 59 148 / 20%),
+      3px 3px 0 0 #ff3b94;
+  }
+}
+
+@keyframes vegas-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes vegas-border-glow {
+  0%, 100% {
+    border-color: rgb(0 255 209 / 60%);
+    box-shadow:
+      0 0 8px rgb(0 255 209 / 40%),
+      0 0 20px rgb(0 255 209 / 20%),
+      3px 3px 0 0 #00ffd1;
+  }
+
+  50% {
+    border-color: rgb(0 255 209 / 100%);
+    box-shadow:
+      0 0 16px rgb(0 255 209 / 60%),
+      0 0 40px rgb(0 255 209 / 30%),
+      0 0 60px rgb(0 255 209 / 15%),
+      3px 3px 0 0 #00ffd1;
+  }
+}
+
+/* primary button on hero — hot pink neon with shimmer */
 main .hero a.button.primary:any-link {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  color: var(--dark-color);
+  background: linear-gradient(
+    90deg,
+    #ff3b94 0%,
+    #ff6ec7 25%,
+    #fff 50%,
+    #ff6ec7 75%,
+    #ff3b94 100%
+  );
+  background-size: 200% 100%;
+  border: 2px solid #ff3b94;
+  color: #0f1a14;
+  animation: vegas-glow-pulse 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
+  text-shadow: none;
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(0.9);
+  filter: brightness(1.15);
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow:
+    0 0 24px rgb(255 59 148 / 90%),
+    0 0 60px rgb(255 59 148 / 50%),
+    5px 5px 0 0 #ff3b94;
 }
 
-/* secondary button on hero — white outline, dark shadow */
+main .hero a.button.primary:any-link:active {
+  transform: translate(0, 0) scale(0.97);
+  box-shadow: 0 0 12px rgb(255 59 148 / 70%), 0 0 0 #ff3b94;
+}
+
+/* secondary button on hero — electric teal neon outline */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(255 255 255 / 50%);
-  color: var(--background-color);
+  border: 2px solid #00ffd1;
+  color: #00ffd1;
+  animation: vegas-border-glow 2.5s ease-in-out infinite;
+  text-shadow: 0 0 8px rgb(0 255 209 / 50%);
 }
 
 main .hero a.button.secondary:any-link:hover {
-  border-color: var(--background-color);
-  background-color: var(--accent-color);
-  color: var(--dark-color);
+  background: #00ffd1;
+  border-color: #00ffd1;
+  color: #0f1a14;
+  text-shadow: none;
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow:
+    0 0 24px rgb(0 255 209 / 80%),
+    0 0 60px rgb(0 255 209 / 40%),
+    5px 5px 0 0 #00ffd1;
+}
+
+main .hero a.button.secondary:any-link:active {
+  transform: translate(0, 0) scale(0.97);
+  box-shadow: 0 0 12px rgb(0 255 209 / 60%), 0 0 0 #00ffd1;
 }
 
 @media (width < 768px) {
