@@ -104,6 +104,28 @@
   --glass-border: rgb(255 255 255 / 12%);
 }
 
+/* --- THEME OVERRIDES --- */
+
+:root[data-theme='red'] {
+  --accent-color: #c0392b;
+  --light-color: #f2e8e6;
+  --cream-color: #f5ebe8;
+  --forest-color: #3a1a1a;
+  --link-color: #c0392b;
+  --link-hover-color: #962d22;
+  --btn-shadow: var(--accent-color);
+}
+
+:root[data-theme='blue'] {
+  --accent-color: #2874a6;
+  --light-color: #e6eef4;
+  --cream-color: #e8f0f5;
+  --forest-color: #1a2a3a;
+  --link-color: #2874a6;
+  --link-hover-color: #1e5a80;
+  --btn-shadow: var(--accent-color);
+}
+
 /* fallback fonts */
 @font-face {
   font-family: instrument-sans-fallback;

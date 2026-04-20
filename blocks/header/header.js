@@ -249,6 +249,66 @@ export default async function decorate(block) {
     }
   }
 
+  // Theme selector
+  const themeSelector = document.createElement('div');
+  themeSelector.className = 'nav-theme-selector';
+  const currentTheme = localStorage.getItem('wknd-theme') || 'orange';
+  if (currentTheme !== 'orange') document.documentElement.setAttribute('data-theme', currentTheme);
+
+  const themes = [
+    { id: 'orange', label: 'Orange', swatch: '#e8651a' },
+    { id: 'red', label: 'Red', swatch: '#c0392b' },
+    { id: 'blue', label: 'Blue', swatch: '#2874a6' },
+  ];
+
+  const toggle = document.createElement('button');
+  toggle.className = 'nav-theme-toggle';
+  toggle.setAttribute('aria-label', 'Change theme');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML = `<span class="nav-theme-swatch" style="background:${themes.find((t) => t.id === currentTheme).swatch}"></span><span class="nav-caret" aria-hidden="true"></span>`;
+  themeSelector.append(toggle);
+
+  const dropdown = document.createElement('ul');
+  dropdown.className = 'nav-theme-dropdown';
+  dropdown.hidden = true;
+  themes.forEach((theme) => {
+    const li = document.createElement('li');
+    li.className = `nav-theme-option${theme.id === currentTheme ? ' active' : ''}`;
+    li.dataset.theme = theme.id;
+    li.innerHTML = `<span class="nav-theme-swatch" style="background:${theme.swatch}"></span>${theme.label}`;
+    li.addEventListener('click', () => {
+      if (theme.id === 'orange') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme.id);
+      }
+      localStorage.setItem('wknd-theme', theme.id);
+      toggle.querySelector('.nav-theme-swatch').style.background = theme.swatch;
+      dropdown.querySelectorAll('.nav-theme-option').forEach((opt) => opt.classList.remove('active'));
+      li.classList.add('active');
+      dropdown.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+    dropdown.append(li);
+  });
+  themeSelector.append(dropdown);
+
+  toggle.addEventListener('click', () => {
+    const open = dropdown.hidden;
+    dropdown.hidden = !open;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!themeSelector.contains(e.target)) {
+      dropdown.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  const toolsSection = nav.querySelector('.nav-tools');
+  if (toolsSection) toolsSection.append(themeSelector);
+
   // Hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
