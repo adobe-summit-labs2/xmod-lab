@@ -348,6 +348,63 @@ a:hover {
   outline-offset: 2px;
 }
 
+/* --- VEGAS BUTTON ANIMATIONS --- */
+
+@keyframes vegas-neon-cycle {
+  0% {
+    box-shadow:
+      0 0 5px #e8651a,
+      0 0 12px rgb(232 101 26 / 60%),
+      0 0 30px rgb(232 101 26 / 25%);
+    border-color: #e8651a;
+  }
+
+  25% {
+    box-shadow:
+      0 0 5px #ff2d95,
+      0 0 12px rgb(255 45 149 / 60%),
+      0 0 30px rgb(255 45 149 / 25%);
+    border-color: #ff2d95;
+  }
+
+  50% {
+    box-shadow:
+      0 0 5px #00e5ff,
+      0 0 12px rgb(0 229 255 / 60%),
+      0 0 30px rgb(0 229 255 / 25%);
+    border-color: #00e5ff;
+  }
+
+  75% {
+    box-shadow:
+      0 0 5px #ffe135,
+      0 0 12px rgb(255 225 53 / 60%),
+      0 0 30px rgb(255 225 53 / 25%);
+    border-color: #ffe135;
+  }
+
+  100% {
+    box-shadow:
+      0 0 5px #e8651a,
+      0 0 12px rgb(232 101 26 / 60%),
+      0 0 30px rgb(232 101 26 / 25%);
+    border-color: #e8651a;
+  }
+}
+
+@keyframes vegas-text-glow {
+  0%, 100% { text-shadow: 0 0 4px rgb(255 255 255 / 50%), 0 0 10px rgb(232 101 26 / 40%); }
+  25% { text-shadow: 0 0 4px rgb(255 255 255 / 50%), 0 0 10px rgb(255 45 149 / 40%); }
+  50% { text-shadow: 0 0 4px rgb(255 255 255 / 50%), 0 0 10px rgb(0 229 255 / 40%); }
+  75% { text-shadow: 0 0 4px rgb(255 255 255 / 50%), 0 0 10px rgb(255 225 53 / 40%); }
+}
+
+@keyframes vegas-bg-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 /* --- BUTTON SYSTEM --- */
 
 /* Button wrappers — display consecutive buttons as a row */
@@ -390,8 +447,11 @@ a.button:any-link {
 }
 
 a.button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color));
+  transform: translate(-2px, -2px) scale(1.06);
+  box-shadow:
+    0 0 8px #ff2d95,
+    0 0 20px rgb(255 45 149 / 50%),
+    0 0 40px rgb(0 229 255 / 25%);
   text-decoration: none;
 }
 
@@ -401,23 +461,28 @@ a.button:active {
 }
 
 
-/* Primary: dark bg, white text */
+/* Primary: Vegas neon gradient with color-cycling glow */
 a.button.primary {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  border: 2px solid #e8651a;
+  background: linear-gradient(135deg, #e8651a, #ff2d95, #00e5ff, #ffe135, #e8651a);
+  background-size: 300% 300%;
+  color: #fff;
+  animation: vegas-neon-cycle 3s linear infinite, vegas-bg-shift 4s ease infinite, vegas-text-glow 3s linear infinite;
 }
 
-/* Secondary/Ghost: transparent bg, border matches context */
+/* Secondary: transparent with cycling neon border */
 a.button.secondary {
-  border-color: var(--dark-color);
+  border: 2px solid #e8651a;
   background-color: transparent;
   color: var(--dark-color);
+  animation: vegas-neon-cycle 3s linear infinite 1s;
 }
 
 a.button.secondary:hover {
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  background: linear-gradient(135deg, #e8651a, #ff2d95, #00e5ff, #ffe135, #e8651a);
+  background-size: 300% 300%;
+  color: #fff;
+  animation: vegas-neon-cycle 3s linear infinite, vegas-bg-shift 4s ease infinite, vegas-text-glow 3s linear infinite;
 }
 
 /* Accent: orange bg, dark text (hero) */
@@ -503,24 +568,29 @@ main > .section.dark a:any-link:not(.button) {
   color: var(--accent-color);
 }
 
-/* dark section: primary button inverts to white fill + amber shadow */
+/* dark section: primary keeps the full Vegas neon treatment */
 main > .section.dark a.button.primary {
-  border-color: var(--background-color);
-  background-color: var(--background-color);
-  color: var(--dark-color);
+  border: 2px solid #e8651a;
+  background: linear-gradient(135deg, #e8651a, #ff2d95, #00e5ff, #ffe135, #e8651a);
+  background-size: 300% 300%;
+  color: #fff;
+  animation: vegas-neon-cycle 3s linear infinite, vegas-bg-shift 4s ease infinite, vegas-text-glow 3s linear infinite;
 }
 
-/* dark section: ghost button uses white outline */
+/* dark section: ghost button with cycling neon border */
 main > .section.dark a.button.secondary {
-  border-color: rgb(255 255 255 / 50%);
+  border: 2px solid #ff2d95;
   background-color: transparent;
-  color: var(--background-color);
+  color: #fff;
+  animation: vegas-neon-cycle 3s linear infinite 1.5s;
 }
 
 main > .section.dark a.button.secondary:hover {
-  background-color: var(--background-color);
-  border-color: var(--background-color);
-  color: var(--dark-color);
+  background: linear-gradient(135deg, #ff2d95, #00e5ff, #ffe135, #e8651a, #ff2d95);
+  background-size: 300% 300%;
+  border-color: #ff2d95;
+  color: #fff;
+  animation: vegas-neon-cycle 3s linear infinite, vegas-bg-shift 4s ease infinite, vegas-text-glow 3s linear infinite;
 }
 
 /* dark section: focus ring uses white */
@@ -553,17 +623,20 @@ main > .section.accent > div > p:not(.tag-pill) {
   font-size: 20px;
 }
 
-/* accent section: primary button uses black fill + white shadow */
+/* accent section: primary gets Vegas treatment */
 main > .section.accent a.button.primary {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  border: 2px solid #00e5ff;
+  background: linear-gradient(135deg, #0f1a14, #1a0033, #00222e, #0f1a14);
+  background-size: 300% 300%;
+  color: #fff;
+  animation: vegas-neon-cycle 3s linear infinite, vegas-bg-shift 4s ease infinite, vegas-text-glow 3s linear infinite;
 }
 
 main > .section.accent a.button.secondary {
-  border-color: var(--dark-color);
-  color: var(--dark-color);
+  border: 2px solid #0f1a14;
+  color: #0f1a14;
   background-color: transparent;
+  animation: vegas-neon-cycle 3s linear infinite 1s;
 }
 
 /* Secondary: light bg (kept for backward compatibility) */
