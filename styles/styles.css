@@ -348,6 +348,18 @@ a:hover {
   outline-offset: 2px;
 }
 
+/* --- VEGAS BUTTON ANIMATIONS --- */
+
+@keyframes vegas-glow {
+  0%, 100% { box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color)), 0 0 8px var(--btn-glow, #e8651a80); }
+  50% { box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color)), 0 0 20px var(--btn-glow, #e8651acc), 0 0 40px var(--btn-glow, #e8651a40); }
+}
+
+@keyframes vegas-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 /* --- BUTTON SYSTEM --- */
 
 /* Button wrappers — display consecutive buttons as a row */
@@ -387,28 +399,40 @@ a.button:any-link {
   white-space: nowrap;
   box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color));
   transition: var(--button-transition);
+  animation: vegas-glow 2s ease-in-out infinite;
 }
 
 a.button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color));
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color)), 0 0 30px var(--btn-glow, #e8651acc), 0 0 60px var(--btn-glow, #e8651a60);
   text-decoration: none;
+  animation: none;
 }
 
 a.button:active {
-  transform: translate(0, 0);
+  transform: translate(0, 0) scale(0.97);
   box-shadow: 0 0 0 0 var(--btn-shadow, var(--accent-color));
+  animation: none;
 }
 
 
-/* Primary: dark bg, white text */
+/* Primary: dark bg, white text, shimmer overlay */
 a.button.primary {
   border-color: var(--dark-color);
-  background-color: var(--dark-color);
+  background: linear-gradient(
+    110deg,
+    var(--dark-color) 0%,
+    var(--dark-color) 40%,
+    #e8651a 50%,
+    var(--dark-color) 60%,
+    var(--dark-color) 100%
+  );
+  background-size: 200% 100%;
   color: var(--background-color);
+  animation: vegas-glow 2s ease-in-out infinite, vegas-shimmer 3s ease-in-out infinite;
 }
 
-/* Secondary/Ghost: transparent bg, border matches context */
+/* Secondary/Ghost: transparent bg, pulsing border */
 a.button.secondary {
   border-color: var(--dark-color);
   background-color: transparent;
@@ -420,11 +444,22 @@ a.button.secondary:hover {
   color: var(--background-color);
 }
 
-/* Accent: orange bg, dark text (hero) */
+/* Accent: orange bg, dark text, shimmer (hero) */
 a.button.accent {
   border-color: var(--accent-color);
-  background-color: var(--accent-color);
+  background: linear-gradient(
+    110deg,
+    var(--accent-color) 0%,
+    var(--accent-color) 40%,
+    #ffd700 50%,
+    var(--accent-color) 60%,
+    var(--accent-color) 100%
+  );
+  background-size: 200% 100%;
   color: var(--dark-color);
+  animation: vegas-glow 2s ease-in-out infinite, vegas-shimmer 2.5s ease-in-out infinite;
+
+  --btn-glow: #ffd70080;
 }
 
 
@@ -503,11 +538,22 @@ main > .section.dark a:any-link:not(.button) {
   color: var(--accent-color);
 }
 
-/* dark section: primary button inverts to white fill + amber shadow */
+/* dark section: primary button — white fill + shimmer + neon glow */
 main > .section.dark a.button.primary {
   border-color: var(--background-color);
-  background-color: var(--background-color);
+  background: linear-gradient(
+    110deg,
+    var(--background-color) 0%,
+    var(--background-color) 40%,
+    #ffd700 50%,
+    var(--background-color) 60%,
+    var(--background-color) 100%
+  );
+  background-size: 200% 100%;
   color: var(--dark-color);
+  animation: vegas-glow 2s ease-in-out infinite, vegas-shimmer 3s ease-in-out infinite;
+
+  --btn-glow: #ffd700aa;
 }
 
 /* dark section: ghost button uses white outline */
