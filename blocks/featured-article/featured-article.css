@@ -48,17 +48,17 @@
       0 0 4px #fff,
       0 0 11px #fff,
       0 0 19px #fff,
-      0 0 40px #e8651a,
-      0 0 80px #e8651a;
+      0 0 40px #ffd700,
+      0 0 80px #daa520;
     box-shadow:
-      0 0 7px #e8651a,
-      0 0 20px #e8651a,
-      inset 0 0 10px rgb(232 101 26 / 30%);
+      0 0 7px #ffd700,
+      0 0 20px #daa520,
+      inset 0 0 10px rgb(255 215 0 / 30%);
   }
 
   20%, 24%, 55% {
     text-shadow: none;
-    box-shadow: 0 0 4px #e8651a;
+    box-shadow: 0 0 4px #daa520;
   }
 }
 
@@ -75,27 +75,28 @@
 @keyframes neon-pulse {
   0%, 100% {
     box-shadow:
-      0 0 5px #e8651a,
-      0 0 15px #e8651a,
-      0 0 30px rgb(232 101 26 / 40%);
+      0 0 5px #daa520,
+      0 0 15px #daa520,
+      0 0 30px rgb(218 165 32 / 40%);
   }
 
   50% {
     box-shadow:
-      0 0 10px #ff6b2b,
-      0 0 25px #ff6b2b,
-      0 0 50px rgb(255 107 43 / 50%),
-      0 0 80px rgb(255 107 43 / 20%);
+      0 0 10px #ffd700,
+      0 0 25px #ffd700,
+      0 0 50px rgb(255 215 0 / 50%),
+      0 0 80px rgb(255 215 0 / 20%);
   }
 }
 
 /* tag pill — Vegas neon style */
 .featured-article .tag-pill {
   width: fit-content;
-  background: linear-gradient(135deg, #e8651a, #ff3e8a, #e8651a);
+  background: linear-gradient(135deg, #daa520, #ffd700, #f0c040);
   background-size: 200% 200%;
   animation: neon-flicker 4s infinite alternate;
-  border: 1px solid rgb(255 255 255 / 30%);
+  color: #1a1a2e;
+  border: 1px solid rgb(255 215 0 / 50%);
   text-transform: uppercase;
 }
 
@@ -134,7 +135,7 @@
   padding: var(--gap-xs) var(--gap-xl);
   background: linear-gradient(135deg, #1a1a2e, #16213e);
   color: #fff;
-  border: 2px solid #e8651a;
+  border: 2px solid #ffd700;
   border-radius: var(--button-border-radius);
   animation: neon-pulse 2s ease-in-out infinite;
   transition: transform 0.3s, background 0.3s;
@@ -152,7 +153,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgb(255 255 255 / 20%),
+    rgb(255 215 0 / 30%),
     transparent
   );
   animation: shimmer 3s infinite;
@@ -160,16 +161,17 @@
 
 .featured-article .featured-article-content p:last-child a:hover {
   transform: translateY(-3px) scale(1.05);
-  background: linear-gradient(135deg, #e8651a, #ff3e8a);
+  background: linear-gradient(135deg, #daa520, #ffd700);
+  color: #1a1a2e;
   box-shadow:
-    0 0 15px #e8651a,
-    0 0 30px #ff3e8a,
-    0 0 60px rgb(232 101 26 / 50%);
+    0 0 15px #ffd700,
+    0 0 30px #daa520,
+    0 0 60px rgb(255 215 0 / 50%);
 }
 
 .featured-article .featured-article-content p:last-child a:active {
   transform: translateY(0) scale(0.98);
-  box-shadow: 0 0 5px #e8651a;
+  box-shadow: 0 0 5px #daa520;
 }
 
 @media (width >= 768px) {
