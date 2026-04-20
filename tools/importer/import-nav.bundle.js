@@ -22,7 +22,7 @@ var CustomImportScript = (() => {
   __export(import_nav_exports, {
     default: () => import_nav_default
   });
-  var BASE = "/content/wknd/";
+  var BASE = "/";
   function rewriteHref(href) {
     if (!href) return href;
     try {
