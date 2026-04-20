@@ -67,7 +67,7 @@
   border-top: 1px solid var(--border-color-light);
 }
 
-/* style link as dark button */
+/* style link as Atlantic blue primary button */
 .featured-article .featured-article-content p:last-child a:any-link {
   display: flex;
   align-items: center;
@@ -78,21 +78,27 @@
   letter-spacing: 0.98px;
   text-decoration: none;
   padding: var(--gap-xs) var(--gap-xl);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  background-color: #1a5276;
+  color: #fff;
+  border: 2px solid #1a5276;
   border-radius: var(--button-border-radius);
-  box-shadow: 3px 3px 0 var(--accent-color);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 3px 3px 0 #0d3b5e;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  cursor: pointer;
 }
 
 .featured-article .featured-article-content p:last-child a:hover {
+  background-color: #1f6898;
+  border-color: #1f6898;
   transform: translateY(-2px);
-  box-shadow: 5px 5px 0 var(--accent-color);
+  box-shadow: 5px 5px 0 #0d3b5e;
 }
 
 .featured-article .featured-article-content p:last-child a:active {
+  background-color: #0d3b5e;
+  border-color: #0d3b5e;
   transform: translateY(0);
-  box-shadow: 0 0 0 var(--accent-color);
+  box-shadow: 0 0 0 #0d3b5e;
 }
 
 @media (width >= 768px) {
