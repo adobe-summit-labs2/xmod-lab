@@ -156,16 +156,16 @@ main .hero a.button:any-link:active {
 @keyframes vegas-neon-pulse {
   0%, 100% {
     box-shadow:
-      0 0 8px var(--accent-color),
-      0 0 20px rgb(232 101 26 / 50%),
+      0 0 8px #f9c,
+      0 0 20px rgb(255 153 204 / 50%),
       3px 3px 0 0 var(--btn-shadow, var(--dark-color));
   }
 
   50% {
     box-shadow:
-      0 0 16px var(--accent-color),
-      0 0 40px rgb(232 101 26 / 60%),
-      0 0 60px rgb(232 101 26 / 25%),
+      0 0 16px #f9c,
+      0 0 40px rgb(255 153 204 / 60%),
+      0 0 60px rgb(255 153 204 / 25%),
       3px 3px 0 0 var(--btn-shadow, var(--dark-color));
   }
 }
@@ -197,12 +197,12 @@ main .hero a.button.primary:any-link {
   background:
     linear-gradient(
       110deg,
-      var(--accent-color) 30%,
-      #ffb347 50%,
-      var(--accent-color) 70%
+      #f9c 30%,
+      #fce 50%,
+      #f9c 70%
     );
   background-size: 200% 100%;
-  border: 2px solid var(--accent-color);
+  border: 2px solid #f9c;
   color: var(--dark-color);
   animation: vegas-neon-pulse 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
 }
@@ -211,8 +211,8 @@ main .hero a.button.primary:any-link:hover {
   filter: brightness(1.15);
   animation: vegas-shimmer 1.5s linear infinite;
   box-shadow:
-    0 0 24px var(--accent-color),
-    0 0 50px rgb(232 101 26 / 50%),
+    0 0 24px #f9c,
+    0 0 50px rgb(255 153 204 / 50%),
     5px 5px 0 0 var(--btn-shadow, var(--dark-color));
 }
 
@@ -226,7 +226,7 @@ main .hero a.button.secondary:any-link {
 
 main .hero a.button.secondary:any-link:hover {
   border-color: var(--background-color);
-  background-color: var(--accent-color);
+  background-color: #f9c;
   color: var(--dark-color);
   animation: vegas-neon-pulse 1.5s ease-in-out infinite;
 }
