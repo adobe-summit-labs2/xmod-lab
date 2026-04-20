@@ -6,18 +6,35 @@ export default function decorate(block) {
     const contentRow = rows[1];
     const contentCell = contentRow.querySelector(':scope > div') || contentRow;
 
-    // Preserve existing <picture> with its <source> elements; fall back to wrapping bare <img>
-    const picture = imageRow.querySelector('picture');
-    if (picture) {
-      block.replaceChildren(picture, contentCell);
-    } else {
+    // Check for a video link (anchor pointing to .mp4)
+    const videoLink = imageRow.querySelector('a[href$=".mp4"]');
+    if (videoLink) {
+      const video = document.createElement('video');
+      video.className = 'hero-video';
+      video.src = videoLink.href;
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute('aria-hidden', 'true');
+      // Keep the poster image if one exists alongside the link
       const img = imageRow.querySelector('img');
-      if (img) {
-        const pic = document.createElement('picture');
-        pic.append(img);
-        block.replaceChildren(pic, contentCell);
+      if (img) video.poster = img.src;
+      block.replaceChildren(video, contentCell);
+    } else {
+      // Preserve existing <picture> with its <source> elements; fall back to wrapping bare <img>
+      const picture = imageRow.querySelector('picture');
+      if (picture) {
+        block.replaceChildren(picture, contentCell);
       } else {
-        block.replaceChildren(contentCell);
+        const img = imageRow.querySelector('img');
+        if (img) {
+          const pic = document.createElement('picture');
+          pic.append(img);
+          block.replaceChildren(pic, contentCell);
+        } else {
+          block.replaceChildren(contentCell);
+        }
       }
     }
   }
