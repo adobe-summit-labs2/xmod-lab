@@ -413,6 +413,92 @@ header .nav-theme-option .nav-theme-swatch {
 }
 
 /* ----------------------------------------------------------------
+   Dark mode toggle
+   ---------------------------------------------------------------- */
+header .nav-darkmode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--border-color-light);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+header .nav-darkmode-toggle:hover {
+  border-color: var(--accent-color);
+}
+
+header .nav-darkmode-icon {
+  font-size: 16px;
+  line-height: 1;
+  color: inherit;
+}
+
+/* dark mode: header bar */
+:root[data-darkmode='on'] header .nav-wrapper {
+  background-color: #141a1e;
+  border-bottom-color: var(--border-color-light);
+}
+
+:root[data-darkmode='on'] header nav {
+  color: var(--text-color);
+}
+
+:root[data-darkmode='on'] header nav a:any-link {
+  color: var(--text-color);
+}
+
+:root[data-darkmode='on'] header .nav-megamenu-trigger {
+  color: var(--text-color);
+}
+
+:root[data-darkmode='on'] header .nav-megamenu-trigger[aria-expanded='true'],
+:root[data-darkmode='on'] header .nav-megamenu-trigger:hover {
+  background-color: #253038;
+}
+
+:root[data-darkmode='on'] header .nav-megamenu {
+  background-color: #141a1e;
+  border-color: var(--border-color-light);
+}
+
+:root[data-darkmode='on'] header .nav-megamenu-link:hover,
+:root[data-darkmode='on'] header .nav-megamenu-article-link:hover {
+  background-color: #253038;
+}
+
+:root[data-darkmode='on'] header .nav-subscribe:any-link {
+  background-color: #e4e8eb;
+  border-color: #e4e8eb;
+  color: #141a1e;
+}
+
+:root[data-darkmode='on'] header .nav-theme-toggle {
+  border-color: var(--border-color-light);
+  background: transparent;
+  color: var(--text-color);
+}
+
+:root[data-darkmode='on'] header .nav-theme-dropdown {
+  background: #1c2428;
+  border-color: var(--border-color-light);
+}
+
+:root[data-darkmode='on'] header .nav-theme-option {
+  color: var(--text-color);
+}
+
+:root[data-darkmode='on'] header .nav-theme-option:hover {
+  background-color: #253038;
+}
+
+/* ----------------------------------------------------------------
    Desktop overrides (≥ 900px)
    ---------------------------------------------------------------- */
 @media (width >= 1024px) {

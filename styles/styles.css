@@ -104,13 +104,10 @@
   --glass-border: rgb(255 255 255 / 12%);
 }
 
-/* --- THEME OVERRIDES --- */
+/* --- COLOR THEME OVERRIDES (accent/link only) --- */
 
 :root[data-theme='red'] {
   --accent-color: #c0392b;
-  --light-color: #f2e8e6;
-  --cream-color: #f5ebe8;
-  --forest-color: #3a1a1a;
   --link-color: #c0392b;
   --link-hover-color: #962d22;
   --btn-shadow: var(--accent-color);
@@ -118,12 +115,72 @@
 
 :root[data-theme='blue'] {
   --accent-color: #2874a6;
-  --light-color: #e6eef4;
-  --cream-color: #e8f0f5;
-  --forest-color: #1a2a3a;
   --link-color: #2874a6;
   --link-hover-color: #1e5a80;
   --btn-shadow: var(--accent-color);
+}
+
+/* --- DARK MODE ---
+ * IMPORTANT: --dark-color and --background-color are NOT swapped.
+ * They are semantic tokens used as "always dark" / "always light" for
+ * .section.dark text, button fills, etc. Swapping them breaks everything.
+ * Instead we override body bg, text, and surface-only tokens.
+ */
+
+:root[data-darkmode='on'] {
+  --text-color: #e4e8eb;
+  --text-color-muted: #8a9499;
+  --text-color-subtle: #b0bac0;
+  --light-color: #1c2428;
+  --cream-color: #1c2428;
+  --border-color: #2e3a40;
+  --border-color-light: #253038;
+  --card-hover-shadow: 0 4px 20px rgb(0 0 0 / 30%);
+  --footer-link-color: #8a9499;
+  --glass-bg: rgb(255 255 255 / 8%);
+  --glass-border: rgb(255 255 255 / 14%);
+}
+
+/* dark mode: page background */
+:root[data-darkmode='on'] body {
+  background-color: #141a1e;
+}
+
+/* dark mode: normal section headings */
+:root[data-darkmode='on'] main > .section > div h1,
+:root[data-darkmode='on'] main > .section > div h2,
+:root[data-darkmode='on'] main > .section > div h3,
+:root[data-darkmode='on'] main > .section > div h4,
+:root[data-darkmode='on'] main > .section > div h5,
+:root[data-darkmode='on'] main > .section > div h6 {
+  color: var(--text-color);
+}
+
+/* dark mode: dark sections stay unchanged (already light-on-dark) */
+
+/* dark mode: secondary/light sections use elevated surface */
+:root[data-darkmode='on'] main > .section.secondary,
+:root[data-darkmode='on'] main .section.light,
+:root[data-darkmode='on'] main .section.highlight {
+  background-color: #1c2428;
+}
+
+/* dark mode: normal section primary buttons — light fill on dark page */
+:root[data-darkmode='on'] main > .section:not(.dark):not(.accent) a.button.primary {
+  background-color: #e4e8eb;
+  border-color: #e4e8eb;
+  color: #141a1e;
+}
+
+/* dark mode: normal section secondary buttons */
+:root[data-darkmode='on'] main > .section:not(.dark):not(.accent) a.button.secondary {
+  border-color: #e4e8eb;
+  color: #e4e8eb;
+}
+
+:root[data-darkmode='on'] main > .section:not(.dark):not(.accent) a.button.secondary:hover {
+  background-color: #e4e8eb;
+  color: #141a1e;
 }
 
 /* fallback fonts */

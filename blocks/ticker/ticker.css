@@ -35,7 +35,7 @@ main > .section.ticker-container {
   font-weight: 700;
   letter-spacing: -0.48px;
   line-height: 32px;
-  color: var(--dark-color);
+  color: var(--text-color);
 }
 
 /* separator dots — accent orange */
