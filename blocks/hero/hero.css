@@ -176,6 +176,76 @@ main .hero a.button.secondary:any-link:hover {
   color: var(--dark-color);
 }
 
+/* ===== Vegas-style animated buttons ===== */
+
+@keyframes vegas-glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px 2px rgb(232 101 26 / 60%), 0 0 20px 6px rgb(232 101 26 / 30%); }
+  50% { box-shadow: 0 0 16px 6px rgb(255 180 50 / 80%), 0 0 40px 12px rgb(232 101 26 / 40%); }
+}
+
+@keyframes vegas-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes vegas-glow-secondary {
+  0%, 100% { box-shadow: 0 0 8px 2px rgb(255 255 255 / 30%), 0 0 20px 4px rgb(255 200 50 / 20%); }
+  50% { box-shadow: 0 0 14px 4px rgb(255 255 255 / 50%), 0 0 32px 8px rgb(255 200 50 / 30%); }
+}
+
+/* Primary — neon glow with gold shimmer sweep */
+main .hero a.button.primary:any-link {
+  background: linear-gradient(
+    110deg,
+    var(--accent-color) 0%,
+    var(--accent-color) 35%,
+    #ffcc33 50%,
+    var(--accent-color) 65%,
+    var(--accent-color) 100%
+  );
+  background-size: 200% 100%;
+  border: 2px solid #ffcc33;
+  color: var(--dark-color);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+  animation: vegas-glow-pulse 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+main .hero a.button.primary:any-link:hover {
+  transform: translate(-2px, -2px) scale(1.05);
+  filter: brightness(1.15);
+  box-shadow: 0 0 24px 8px rgb(255 180 50 / 80%), 0 0 48px 16px rgb(232 101 26 / 50%);
+  animation: vegas-shimmer 3s linear infinite;
+}
+
+main .hero a.button.primary:any-link:active {
+  transform: translate(0, 0) scale(0.98);
+  box-shadow: 0 0 6px 2px rgb(232 101 26 / 60%);
+}
+
+/* Secondary — pulsing white/gold neon outline */
+main .hero a.button.secondary:any-link {
+  border: 2px solid rgb(255 200 50 / 60%);
+  color: #ffcc33;
+  background: transparent;
+  animation: vegas-glow-secondary 2.5s ease-in-out infinite;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+main .hero a.button.secondary:any-link:hover {
+  border-color: #ffcc33;
+  background-color: rgb(255 204 51 / 15%);
+  color: #fff;
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow: 0 0 20px 6px rgb(255 200 50 / 50%), 0 0 40px 10px rgb(255 200 50 / 25%);
+  animation: none;
+}
+
+main .hero a.button.secondary:any-link:active {
+  transform: translate(0, 0) scale(0.98);
+  box-shadow: 0 0 6px 2px rgb(255 200 50 / 40%);
+}
+
 @media (width < 768px) {
   .section .hero .button-group {
     flex-direction: column;
