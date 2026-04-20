@@ -107,17 +107,17 @@
   background: none;
 }
 
-/* --- FAQ item (details element) — rounded pill with hover accent --- */
+/* --- FAQ item (details element) — rounded pill with accent border --- */
 .faq-list details {
-  border: 1px solid var(--faq-border-color);
+  border: 1px solid var(--faq-accent-color);
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: var(--gap-xs);
-  transition: border-color 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .faq-list details:hover {
-  border-color: var(--faq-accent-color);
+  border-color: var(--dark-color);
 }
 
 .faq-list details p {
@@ -134,32 +134,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--faq-question-padding);
+  padding: 16px 24px;
   cursor: pointer;
   list-style: none;
   font-family: var(--body-font-family);
-  font-size: var(--faq-question-font-size);
-  font-weight: var(--faq-question-font-weight);
+  font-size: 18px;
+  font-weight: 600;
   text-transform: none;
   letter-spacing: normal;
-  line-height: 1.6;
+  line-height: 22px;
   color: var(--dark-color);
-  transition: background-color 0.15s ease;
+  background-color: #f2ece3;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .faq-list details summary::-webkit-details-marker {
   display: none;
 }
 
-/* Hover: warm background on question row */
+/* Hover: orange background on question row */
 .faq-list details summary:hover {
-  background-color: var(--faq-hover-bg);
+  background-color: var(--faq-accent-color);
 }
 
-/* Open state: keep hover background on summary */
+/* Hover: plus icon turns white */
+.faq-list details summary:hover::after {
+  color: #fff;
+}
+
+/* Open state: beige background on summary */
 .faq-list details[open] summary {
-  background-color: var(--faq-hover-bg);
+  background-color: #f2ece3;
   border-radius: 15px 15px 0 0;
+}
+
+/* Open + hover: orange background */
+.faq-list details[open] summary:hover {
+  background-color: var(--faq-accent-color);
+}
+
+/* Open + hover: plus icon turns beige */
+.faq-list details[open] summary:hover::after {
+  color: #f2ece3;
 }
 
 /* Plus icon → rotates 45° to × when open */
@@ -170,7 +186,7 @@
   color: var(--faq-accent-color);
   margin-left: var(--gap-md, 16px);
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.15s ease;
 }
 
 .faq-list details[open] summary::after {
@@ -179,10 +195,12 @@
 
 /* --- Answer body — smooth reveal --- */
 .faq-list details .faq-list-item-body {
-  padding: var(--faq-answer-padding);
+  padding: 16px 24px;
   color: var(--faq-answer-color);
   font-family: var(--body-font-family);
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 27px;
+  background-color: #f2ece3;
 }
 
 .faq-list details .faq-list-item-body a {
@@ -191,6 +209,10 @@
 }
 
 .faq-list details[open] .faq-list-item-body {
-  border-top: 1px solid var(--faq-border-color);
-  background-color: var(--background-color);
+  background-color: #f2ece3;
+}
+
+/* Open + hover: answer body stays beige */
+.faq-list details:hover .faq-list-item-body {
+  background-color: #f2ece3;
 }
