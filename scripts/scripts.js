@@ -34,7 +34,7 @@ export function getContentRoot() {
     while (root.length > 0 && ['blog'].includes(root[root.length - 1])) {
       root.pop();
     }
-    return `/${root.join('/')}`;
+    return root.length ? `/${root.join('/')}` : '';
   }
   return '';
 }
