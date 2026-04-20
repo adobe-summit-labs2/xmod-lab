@@ -348,6 +348,18 @@ a:hover {
   outline-offset: 2px;
 }
 
+/* --- CASINO BUTTON SHIMMER --- */
+
+@keyframes casino-shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+@keyframes casino-glow-pulse {
+  0%, 100% { box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color)), 0 0 8px var(--btn-glow, var(--accent-color)); }
+  50% { box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color)), 0 0 18px var(--btn-glow, var(--accent-color)); }
+}
+
 /* --- BUTTON SYSTEM --- */
 
 /* Button wrappers — display consecutive buttons as a row */
@@ -387,25 +399,56 @@ a.button:any-link {
   white-space: nowrap;
   box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--accent-color));
   transition: var(--button-transition);
+  position: relative;
+  animation: casino-glow-pulse 2s ease-in-out infinite;
+}
+
+/* shimmer light sweep */
+a.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgb(255 255 255 / 0%) 30%,
+    rgb(255 255 255 / 40%) 50%,
+    rgb(255 255 255 / 0%) 70%,
+    transparent 100%
+  );
+  animation: casino-shimmer 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 a.button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color));
+  transform: translate(-2px, -2px) scale(1.04);
+  box-shadow: 5px 5px 0 0 var(--btn-shadow, var(--accent-color)), 0 0 24px var(--btn-glow, var(--accent-color));
   text-decoration: none;
+  animation: none;
+}
+
+/* faster shimmer on hover */
+a.button:hover::after {
+  animation: casino-shimmer 0.6s ease-in-out;
 }
 
 a.button:active {
-  transform: translate(0, 0);
+  transform: translate(0, 0) scale(0.97);
   box-shadow: 0 0 0 0 var(--btn-shadow, var(--accent-color));
+  animation: none;
 }
 
 
-/* Primary: dark bg, white text */
+/* Primary: dark bg, white text, gold glow */
 a.button.primary {
   border-color: var(--dark-color);
   background-color: var(--dark-color);
   color: var(--background-color);
+
+  --btn-glow: #e8651a;
 }
 
 /* Secondary/Ghost: transparent bg, border matches context */
@@ -413,11 +456,18 @@ a.button.secondary {
   border-color: var(--dark-color);
   background-color: transparent;
   color: var(--dark-color);
+
+  --btn-glow: #e8651a80;
 }
 
 a.button.secondary:hover {
   background-color: var(--dark-color);
   color: var(--background-color);
+}
+
+/* stagger shimmer timing on secondary buttons */
+a.button.secondary::after {
+  animation-delay: 1.5s;
 }
 
 /* Accent: orange bg, dark text (hero) */
@@ -508,6 +558,8 @@ main > .section.dark a.button.primary {
   border-color: var(--background-color);
   background-color: var(--background-color);
   color: var(--dark-color);
+
+  --btn-glow: #e8651a;
 }
 
 /* dark section: ghost button uses white outline */
@@ -515,6 +567,8 @@ main > .section.dark a.button.secondary {
   border-color: rgb(255 255 255 / 50%);
   background-color: transparent;
   color: var(--background-color);
+
+  --btn-glow: rgb(255 255 255 / 30%);
 }
 
 main > .section.dark a.button.secondary:hover {
@@ -558,12 +612,16 @@ main > .section.accent a.button.primary {
   border-color: var(--dark-color);
   background-color: var(--dark-color);
   color: var(--background-color);
+
+  --btn-glow: rgb(255 255 255 / 60%);
 }
 
 main > .section.accent a.button.secondary {
   border-color: var(--dark-color);
   color: var(--dark-color);
   background-color: transparent;
+
+  --btn-glow: rgb(0 0 0 / 30%);
 }
 
 /* Secondary: light bg (kept for backward compatibility) */
