@@ -19,9 +19,9 @@
   --border-color: #c8c2b8;
   --border-color-light: #ddd8cf;
 
-  /* fonts */
+  /* fonts — heading uses system UI stack for ADA readability (replaces Syncopate all-caps display font) */
   --body-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
-  --heading-font-family: syncopate, syncopate-fallback, sans-serif;
+  --heading-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
 
   /* body sizes (mobile-first) */
   --body-font-size-m: 16px;
@@ -53,7 +53,7 @@
   --nav-height: 64px;
 
   /* buttons */
-  --button-font-family: syncopate, syncopate-fallback, sans-serif;
+  --button-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
   --button-font-size: 14px;
   --button-font-weight: 700;
   --button-letter-spacing: 0.98px;
