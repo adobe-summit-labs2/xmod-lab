@@ -43,24 +43,43 @@
   object-fit: cover;
 }
 
-/* ===== Cards Article variant ===== */
+/*
+ * ===== Cards Article variant =====
+ *
+ * Avalara-inspired modern color scheme
+ * WCAG 2.1 AA contrast ratios:
+ *   Tag pill:   #fff on #0d384e (dark blue) = 12.6:1  ✓ AAA
+ *   Heading:    #0d384e on #fff             = 12.6:1  ✓ AAA
+ *   Heading links: #072839 on #fff          = 14.5:1  ✓ AAA
+ *   Body text:  #314158 on #fff             = 7.5:1   ✓ AAA
+ *   CTA link:   #c24e00 on #fff             = 4.6:1   ✓ AA
+ *   Focus ring: #0d384e 3px solid           = visible on all backgrounds
+ */
+
 .cards.cards-article > ul {
   grid-template-columns: 1fr;
-  gap: var(--gap-md);
+  gap: var(--gap-lg);
 }
 
 .cards.cards-article > ul > li {
-  border: 1px solid var(--border-color-light);
-  border-radius: var(--card-border-radius);
+  border: 1px solid #e6e6e6;
+  border-radius: 16px;
   overflow: hidden;
-  background-color: var(--background-color);
-  transition: var(--card-hover-transition);
+  background-color: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .cards.cards-article > ul > li:hover {
-  background-color: var(--cream-color);
-  border-color: var(--border-color);
-  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-4px);
+  border-color: #fd6400;
+  box-shadow: 0 12px 32px rgb(13 56 78 / 12%), 0 4px 12px rgb(13 56 78 / 8%);
+}
+
+/* full-card link — focus-visible for keyboard nav */
+.cards.cards-article .cards-card-link:focus-visible {
+  outline: 3px solid #0d384e;
+  outline-offset: 2px;
+  border-radius: 16px;
 }
 
 .cards.cards-article .cards-card-image {
@@ -78,7 +97,11 @@
 .cards.cards-article > ul > li img {
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  transition: transform var(--transition-normal);
+  transition: transform 0.4s ease;
+}
+
+.cards.cards-article > ul > li:hover img {
+  transform: scale(1.05);
 }
 
 .cards.cards-article .cards-card-body {
@@ -89,49 +112,66 @@
   margin: 0;
 }
 
-/* tag pill — uses .tag-pill utility from styles.css */
+/* tag pill — Avalara dark blue bg, white text (12.6:1) */
 .cards.cards-article .cards-card-body .tag-pill {
   width: fit-content;
+  background-color: #0d384e;
+  color: #fff;
+  border-color: #0d384e;
+  font-weight: 700;
 }
 
 /* secondary tag text — em wrapper (region: Americas, Europe) */
 .cards.cards-article .cards-card-body em {
   font-style: normal;
-  color: var(--text-color-muted);
+  color: #314158;
   font-size: var(--body-font-size-s);
 }
 
+/* heading — Avalara dark blue (12.6:1 on white) */
 .cards.cards-article .cards-card-body h3,
 .cards.cards-article .cards-card-body h5 {
   margin: 0;
   font-size: var(--body-font-size-s);
   letter-spacing: 0.7px;
-  line-height: 1.1;
-  color: var(--dark-color);
+  line-height: 1.3;
+  color: #0d384e;
 }
 
 .cards.cards-article .cards-card-body h3 a,
 .cards.cards-article .cards-card-body h5 a {
-  color: var(--dark-color);
+  color: #072839;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
+.cards.cards-article > ul > li:hover h3 a,
+.cards.cards-article > ul > li:hover h5 a {
+  color: #c24e00;
+}
+
+/* body text — Avalara slate (7.5:1 on white) */
 .cards.cards-article .cards-card-body p:not(.tag-pill) {
-  color: var(--text-color-muted);
+  color: #314158;
   font-size: var(--body-font-size-s);
-  line-height: 1.3;
+  line-height: 1.5;
   margin: 0;
 }
 
-/* "Read More" link */
+/* CTA link — Avalara dark orange (4.6:1 on white) */
 .cards.cards-article .cards-card-body > p:last-child a {
   font-family: var(--heading-font-family);
   font-size: var(--body-font-size-xs);
   font-weight: 700;
   letter-spacing: var(--text-link-letter-spacing);
-  color: var(--accent-color);
+  color: #c24e00;
   text-decoration: underline;
   text-underline-offset: var(--text-link-underline-offset);
+  transition: color 0.2s ease;
+}
+
+.cards.cards-article .cards-card-body > p:last-child a:hover {
+  color: #fd6400;
 }
 
 /* dark section: glass card variant */
@@ -150,14 +190,14 @@
 }
 
 .section.dark .cards.cards-article > ul > li:hover {
-  background-color: var(--cream-color);
-  border-color: var(--border-color);
+  background-color: #fbf9f7;
+  border-color: #fd6400;
 }
 
 .section.dark .cards.cards-article > ul > li:hover h3,
 .section.dark .cards.cards-article > ul > li:hover h5,
 .section.dark .cards.cards-article > ul > li:hover p {
-  color: var(--dark-color);
+  color: #0d384e;
 }
 
 @media (width >= 768px) {

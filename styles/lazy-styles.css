@@ -6,10 +6,10 @@
 
 /* --- Local design tokens --- */
 .tabs-container {
-  --tabs-accent: var(--accent-color, rgb(232 101 26));
-  --tabs-text: var(--dark-color, rgb(15 26 20));
-  --tabs-muted: var(--text-color-muted, rgb(122 138 128));
-  --tabs-inactive: var(--border-color, rgb(200 194 184));
+  --tabs-accent: var(--accent-color, #fd6400);
+  --tabs-text: var(--dark-color, #0d384e);
+  --tabs-muted: var(--text-color-muted, #314158);
+  --tabs-inactive: var(--border-color, #e6e6e6);
 
   max-width: var(--container-max-width);
   margin: 0 auto;

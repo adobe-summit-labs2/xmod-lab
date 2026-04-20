@@ -118,31 +118,31 @@ main > .hero-container {
 }
 
 /*
- * Modern accessible glow — subtle shadow pulse
- * WCAG 2.1 AA contrast ratios (14px bold = large text, 3:1 min; targeting 4.5:1+):
- *   Primary:   #fff on #4338ca (indigo-700) = 9.4:1  ✓ AAA
- *   Primary hover: #fff on #3730a3 (indigo-800) = 11.4:1  ✓ AAA
+ * Avalara-themed hero buttons with subtle animated glow
+ * WCAG 2.1 AA contrast ratios (14px bold = large text, 3:1 min):
+ *   Primary:   #fff on #c24e00 (Avalara dark orange) = 4.8:1  ✓ AA
+ *   Primary hover: #fff on #0d384e (Avalara dark blue) = 12.6:1  ✓ AAA
  *   Secondary: #fff on dark hero overlay ≈ 15:1+  ✓ AAA
- *   Secondary hover: #fff on #0f766e (teal-700) = 5.0:1  ✓ AA
+ *   Secondary hover: #072839 on #e3f3f8 (Avalara cloud) = 13.4:1  ✓ AAA
  *   Focus outlines: 3px solid #fff = visible on all backgrounds
  */
 @keyframes soft-glow {
   0%, 100% {
-    box-shadow: 0 2px 12px rgb(99 102 241 / 50%), 0 0 24px rgb(99 102 241 / 25%);
+    box-shadow: 0 2px 12px rgb(253 100 0 / 40%), 0 0 24px rgb(253 100 0 / 20%);
   }
 
   50% {
-    box-shadow: 0 4px 20px rgb(99 102 241 / 70%), 0 0 40px rgb(99 102 241 / 35%);
+    box-shadow: 0 4px 20px rgb(253 100 0 / 60%), 0 0 40px rgb(253 100 0 / 30%);
   }
 }
 
 @keyframes soft-glow-secondary {
   0%, 100% {
-    box-shadow: 0 2px 10px rgb(20 184 166 / 30%), 0 0 20px rgb(20 184 166 / 15%);
+    box-shadow: 0 2px 10px rgb(193 236 249 / 25%), 0 0 20px rgb(193 236 249 / 12%);
   }
 
   50% {
-    box-shadow: 0 4px 16px rgb(20 184 166 / 50%), 0 0 32px rgb(20 184 166 / 25%);
+    box-shadow: 0 4px 16px rgb(193 236 249 / 40%), 0 0 32px rgb(193 236 249 / 20%);
   }
 }
 
@@ -184,22 +184,22 @@ main .hero a.button:any-link:focus-visible {
   outline-offset: 3px;
 }
 
-/* primary — indigo-700 gradient, white text (9.4:1 contrast) */
+/* primary — Avalara orange gradient, white text (4.8:1 on #c24e00) */
 main .hero a.button.primary:any-link {
-  background: linear-gradient(135deg, #4338ca, #6366f1);
-  border: 2px solid #4338ca;
+  background: linear-gradient(135deg, #c24e00, #fd6400);
+  border: 2px solid #c24e00;
   color: #fff;
   animation: soft-glow 3s ease-in-out infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
-  background: linear-gradient(135deg, #3730a3, #4f46e5);
-  border-color: #3730a3;
-  box-shadow: 0 6px 28px rgb(99 102 241 / 60%), 0 0 48px rgb(99 102 241 / 30%);
+  background: #0d384e;
+  border-color: #0d384e;
+  box-shadow: 0 6px 28px rgb(13 56 78 / 50%), 0 0 48px rgb(13 56 78 / 25%);
   animation: none;
 }
 
-/* secondary — white border/text on dark overlay, teal hover (5.0:1 contrast) */
+/* secondary — white border/text on dark overlay, Avalara cloud hover */
 main .hero a.button.secondary:any-link {
   background: transparent;
   border: 2px solid rgb(255 255 255 / 70%);
@@ -208,10 +208,10 @@ main .hero a.button.secondary:any-link {
 }
 
 main .hero a.button.secondary:any-link:hover {
-  background: #0f766e;
-  border-color: #0f766e;
-  color: #fff;
-  box-shadow: 0 6px 24px rgb(15 118 110 / 50%), 0 0 40px rgb(15 118 110 / 25%);
+  background: #e3f3f8;
+  border-color: #e3f3f8;
+  color: #072839;
+  box-shadow: 0 6px 24px rgb(227 243 248 / 40%), 0 0 40px rgb(227 243 248 / 20%);
   animation: none;
 }
 
