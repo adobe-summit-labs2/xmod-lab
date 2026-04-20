@@ -692,6 +692,61 @@ main .default-content-wrapper .button-group p.button-wrapper {
   margin: 0;
 }
 
+/* --- VEGAS DESATURATE → COLOR ON HOVER --- */
+
+/* Images: grayscale by default, color on hover */
+main img {
+  filter: grayscale(1);
+  transition: filter 0.5s ease;
+}
+
+/* Bring color back when hovering the image or its parent card/block */
+main .hero:hover img,
+main .featured-article:hover img,
+main .cards li:hover img,
+main .gallery:hover img,
+main .team-profile:hover img,
+main .columns:hover img,
+main img:hover {
+  filter: grayscale(0);
+}
+
+/* Ticker: desaturated text, color on hover */
+main .ticker {
+  filter: grayscale(1);
+  transition: filter 0.5s ease;
+}
+
+main .ticker:hover {
+  filter: grayscale(0);
+}
+
+/* Editorial index: muted accent numbers, color on hover */
+main .editorial-index > div {
+  filter: grayscale(0.6);
+  transition: filter 0.4s ease;
+}
+
+main .editorial-index > div:hover {
+  filter: grayscale(0);
+}
+
+/* FAQ list: subtle desaturation on the accent lines */
+main .faq-list details {
+  filter: grayscale(0.5);
+  transition: filter 0.4s ease;
+}
+
+main .faq-list details:hover,
+main .faq-list details[open] {
+  filter: grayscale(0);
+}
+
+/* Buttons stay full color (already have their own casino animations) */
+main a.button {
+  filter: grayscale(0);
+}
+
 /* --- REDUCED MOTION — ACCESSIBILITY --- */
 
 @media (prefers-reduced-motion: reduce) {
