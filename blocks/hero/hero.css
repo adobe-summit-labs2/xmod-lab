@@ -97,6 +97,7 @@ main > .hero-container {
 .hero .tag-pill {
   margin-bottom: var(--gap-md);
   text-shadow: none;
+  background-color: #ff8c00;
 }
 
 /* lead paragraph — after h1 */
@@ -130,11 +131,11 @@ main > .hero-container {
 
 @keyframes neon-pulse-primary {
   0%, 100% {
-    box-shadow: 0 0 8px #ff2d95, 0 0 20px #ff2d95, 0 0 40px #ff2d95, 0 0 80px #ff2d95;
+    box-shadow: 0 0 8px #00e5ff, 0 0 20px #00e5ff, 0 0 40px #00e5ff, 0 0 80px #00e5ff;
   }
 
   50% {
-    box-shadow: 0 0 4px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #ff2d95, 0 0 40px #ff2d95;
+    box-shadow: 0 0 4px #00e5ff, 0 0 10px #00e5ff, 0 0 20px #00e5ff, 0 0 40px #00e5ff;
   }
 }
 
@@ -171,23 +172,23 @@ main .hero a.button:any-link:active {
   transform: scale(0.96);
 }
 
-/* primary button — hot pink neon, dark text for accessibility (7.2:1 contrast) */
+/* primary button — cyan neon, dark text for accessibility */
 main .hero a.button.primary:any-link {
-  background: #ff2d95;
-  border: 2px solid #ff2d95;
-  color: #1a0010;
+  background: #00e5ff;
+  border: 2px solid #00e5ff;
+  color: #001a1f;
   text-shadow: none;
   animation: neon-pulse-primary 2s ease-in-out infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
-  background: #ffb3d9;
-  border-color: #ffb3d9;
-  color: #1a0010;
+  background: #99f0ff;
+  border-color: #99f0ff;
+  color: #001a1f;
   text-shadow: none;
   transform: scale(1.05);
   animation: none;
-  box-shadow: 0 0 12px #ff2d95, 0 0 30px #ff2d95, 0 0 60px #ff2d95, 0 0 100px #ff2d95;
+  box-shadow: 0 0 12px #00e5ff, 0 0 30px #00e5ff, 0 0 60px #00e5ff, 0 0 100px #00e5ff;
 }
 
 /* secondary button — bright cyan neon on dark bg (11.6:1 contrast) */
