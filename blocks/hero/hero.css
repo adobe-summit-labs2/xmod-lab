@@ -138,7 +138,7 @@ main .hero a.button:any-link {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: 3px 3px 0 0 var(--btn-shadow, var(--dark-color));
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: filter 0.6s ease, transform 0.3s ease, box-shadow 0.6s ease, border-color 0.6s ease, background 0.6s ease;
 }
 
 main .hero a.button:any-link:hover {
@@ -168,38 +168,40 @@ main .hero a.button:any-link:active {
   100% { background-position: 200% center; }
 }
 
-/* primary button on hero — hot Vegas neon */
+/* primary button on hero — desaturated at rest, Vegas neon on hover */
 main .hero a.button.primary:any-link {
   background: linear-gradient(90deg, #ff2d55, #ff6b00, #ffd60a, #ff6b00, #ff2d55);
   background-size: 200% auto;
   border: 2px solid #ff2d55;
   color: #fff;
   text-shadow: 0 1px 2px rgb(0 0 0 / 40%);
-  animation: vegas-glow-primary 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
+  filter: grayscale(100%);
+  animation: none;
 }
 
 main .hero a.button.primary:any-link:hover {
-  filter: brightness(1.2);
+  filter: grayscale(0%) brightness(1.1);
   transform: translate(-2px, -2px) scale(1.05);
-  box-shadow: 0 0 24px #ff2d55, 0 0 48px #ff6b00, 5px 5px 0 0 var(--dark-color);
+  animation: vegas-glow-primary 2s ease-in-out infinite, vegas-shimmer 3s linear infinite;
 }
 
-/* secondary button on hero — cool neon Vegas */
+/* secondary button on hero — desaturated at rest, cool neon on hover */
 main .hero a.button.secondary:any-link {
   background: transparent;
   border: 2px solid #00e5ff;
   color: #fff;
-  animation: vegas-glow-secondary 2s ease-in-out infinite;
+  filter: grayscale(100%);
+  animation: none;
 }
 
 main .hero a.button.secondary:any-link:hover {
+  filter: grayscale(0%);
   border-color: #bf5af2;
   background: linear-gradient(90deg, #00e5ff, #bf5af2, #00e5ff);
   background-size: 200% auto;
   color: #fff;
-  animation: vegas-glow-secondary 2s ease-in-out infinite, vegas-shimmer 2s linear infinite;
   transform: translate(-2px, -2px) scale(1.05);
-  box-shadow: 0 0 24px #bf5af2, 0 0 48px #00e5ff, 5px 5px 0 0 var(--dark-color);
+  animation: vegas-glow-secondary 2s ease-in-out infinite, vegas-shimmer 2s linear infinite;
 }
 
 @media (width < 768px) {
