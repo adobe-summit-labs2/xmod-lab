@@ -40,24 +40,25 @@ main > .hero-container {
   object-fit: cover;
   width: 100%;
   height: 100%;
-  filter: saturate(0) contrast(1.1);
-  transition: filter 0.8s ease;
+  filter: saturate(0.6) contrast(1.2) brightness(0.7) hue-rotate(20deg);
+  transition: filter 1s ease;
 }
 
 .hero:hover img {
-  filter: saturate(1.6) contrast(1.15) hue-rotate(-15deg);
+  filter: saturate(1) contrast(1.3) brightness(0.8) hue-rotate(20deg);
 }
 
-/* overlay gradient — Vegas neon glow */
+/* overlay gradient — Thanos cosmic power */
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(0deg, rgb(0 0 0 / 80%) 0%, rgb(20 0 40 / 50%) 40%, rgb(60 0 80 / 20%)),
-    radial-gradient(ellipse at 20% 80%, rgb(255 0 100 / 15%) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 60%, rgb(0 200 255 / 12%) 0%, transparent 50%);
+    linear-gradient(0deg, rgb(20 0 30 / 90%) 0%, rgb(50 0 80 / 50%) 40%, rgb(80 20 120 / 25%)),
+    radial-gradient(ellipse at 70% 30%, rgb(255 170 0 / 18%) 0%, transparent 40%),
+    radial-gradient(ellipse at 20% 70%, rgb(120 0 200 / 20%) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 75%, rgb(0 120 255 / 10%) 0%, transparent 35%);
   pointer-events: none;
 }
 
@@ -86,7 +87,7 @@ main > .hero-container {
   line-height: 1.1;
   letter-spacing: -0.02em;
   max-width: 608px;
-  text-shadow: 0 0 10px rgb(255 0 100 / 60%), 0 0 40px rgb(255 0 100 / 30%), 0 1px 3px rgb(0 0 0 / 50%);
+  text-shadow: 0 0 12px rgb(180 80 255 / 50%), 0 0 40px rgb(180 80 255 / 20%), 0 2px 6px rgb(0 0 0 / 70%);
 }
 
 .hero p:not(.tag-pill) {
@@ -127,45 +128,54 @@ main > .hero-container {
   margin-right: 0;
 }
 
-/* Vegas neon keyframes */
-@keyframes vegas-neon-pulse {
-  0%, 100% {
+/* Infinity Stone keyframes */
+@keyframes infinity-gauntlet-pulse {
+  0% {
     box-shadow:
-      0 0 8px rgb(255 0 100 / 60%),
-      0 0 20px rgb(255 0 100 / 30%),
-      0 0 40px rgb(255 0 100 / 15%),
-      inset 0 0 8px rgb(255 0 100 / 15%);
+      0 0 8px rgb(255 170 0 / 50%),
+      0 0 20px rgb(255 170 0 / 25%),
+      0 0 40px rgb(180 80 255 / 10%);
   }
 
-  50% {
+  33% {
     box-shadow:
-      0 0 12px rgb(255 0 100 / 80%),
-      0 0 30px rgb(255 0 100 / 50%),
-      0 0 60px rgb(255 0 100 / 25%),
-      inset 0 0 12px rgb(255 0 100 / 25%);
+      0 0 10px rgb(180 80 255 / 60%),
+      0 0 25px rgb(180 80 255 / 30%),
+      0 0 50px rgb(255 170 0 / 10%);
+  }
+
+  66% {
+    box-shadow:
+      0 0 10px rgb(0 120 255 / 50%),
+      0 0 25px rgb(0 120 255 / 25%),
+      0 0 50px rgb(180 80 255 / 10%);
+  }
+
+  100% {
+    box-shadow:
+      0 0 8px rgb(255 170 0 / 50%),
+      0 0 20px rgb(255 170 0 / 25%),
+      0 0 40px rgb(180 80 255 / 10%);
   }
 }
 
-@keyframes vegas-cyan-pulse {
+@keyframes soul-stone-pulse {
   0%, 100% {
     box-shadow:
-      0 0 8px rgb(0 200 255 / 50%),
-      0 0 20px rgb(0 200 255 / 25%),
-      0 0 40px rgb(0 200 255 / 10%),
-      inset 0 0 8px rgb(0 200 255 / 10%);
+      0 0 6px rgb(180 80 255 / 40%),
+      0 0 16px rgb(180 80 255 / 20%);
   }
 
   50% {
     box-shadow:
-      0 0 12px rgb(0 200 255 / 70%),
-      0 0 30px rgb(0 200 255 / 40%),
-      0 0 60px rgb(0 200 255 / 20%),
-      inset 0 0 12px rgb(0 200 255 / 20%);
+      0 0 10px rgb(180 80 255 / 60%),
+      0 0 24px rgb(180 80 255 / 30%),
+      0 0 48px rgb(120 0 200 / 12%);
   }
 }
 
 /*
- * Hero buttons — Vegas neon style
+ * Hero buttons — Gotham dark style
  * Overrides global reset (main a.button:any-link, specificity 0,2,1)
  */
 main .hero a.button:any-link {
@@ -173,12 +183,12 @@ main .hero a.button:any-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 2px;
   padding: 14px 32px;
   font-family: var(--button-font-family);
   font-size: var(--button-font-size);
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   line-height: 1.25;
   text-decoration: none;
@@ -188,7 +198,7 @@ main .hero a.button:any-link {
 }
 
 main .hero a.button:any-link:hover {
-  transform: scale(1.06) translateY(-2px);
+  transform: scale(1.04) translateY(-2px);
   text-decoration: none;
 }
 
@@ -196,44 +206,42 @@ main .hero a.button:any-link:active {
   transform: scale(0.97);
 }
 
-/* primary — hot pink neon */
+/* primary — Infinity Gauntlet gold (cycles through stone colors) */
 main .hero a.button.primary:any-link {
-  background: linear-gradient(135deg, #ff0064, #ff3d8a);
-  border: 2px solid rgb(255 0 100 / 80%);
-  color: #fff;
-  text-shadow: 0 0 8px rgb(255 0 100 / 50%);
-  animation: vegas-neon-pulse 2s ease-in-out infinite;
+  background: linear-gradient(135deg, #ffaa00, #cc7a00);
+  border: 2px solid rgb(255 170 0 / 70%);
+  color: #1a0030;
+  text-shadow: none;
+  animation: infinity-gauntlet-pulse 4s ease-in-out infinite;
 }
 
 main .hero a.button.primary:any-link:hover {
   filter: brightness(1.15);
   animation-play-state: paused;
   box-shadow:
-    0 0 16px rgb(255 0 100 / 90%),
-    0 0 40px rgb(255 0 100 / 50%),
-    0 0 80px rgb(255 0 100 / 25%),
-    inset 0 0 16px rgb(255 0 100 / 30%);
+    0 0 16px rgb(255 170 0 / 80%),
+    0 0 40px rgb(180 80 255 / 40%),
+    0 0 80px rgb(0 120 255 / 20%);
 }
 
-/* secondary — electric cyan neon */
+/* secondary — Power Stone purple */
 main .hero a.button.secondary:any-link {
   background: transparent;
-  border: 2px solid rgb(0 200 255 / 70%);
-  color: #fff;
-  text-shadow: 0 0 8px rgb(0 200 255 / 50%);
-  animation: vegas-cyan-pulse 2.5s ease-in-out infinite;
+  border: 2px solid rgb(180 80 255 / 50%);
+  color: rgb(220 190 255);
+  text-shadow: 0 0 6px rgb(180 80 255 / 30%);
+  animation: soul-stone-pulse 3s ease-in-out infinite;
 }
 
 main .hero a.button.secondary:any-link:hover {
-  background: rgb(0 200 255 / 15%);
-  border-color: rgb(0 200 255);
+  background: rgb(180 80 255 / 12%);
+  border-color: rgb(200 120 255);
   filter: brightness(1.15);
   animation-play-state: paused;
   box-shadow:
-    0 0 16px rgb(0 200 255 / 80%),
-    0 0 40px rgb(0 200 255 / 40%),
-    0 0 80px rgb(0 200 255 / 20%),
-    inset 0 0 16px rgb(0 200 255 / 20%);
+    0 0 16px rgb(180 80 255 / 70%),
+    0 0 40px rgb(180 80 255 / 35%),
+    0 0 80px rgb(120 0 200 / 15%);
 }
 
 @media (width < 768px) {

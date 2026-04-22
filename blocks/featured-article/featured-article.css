@@ -21,6 +21,8 @@
   overflow: hidden;
   border-radius: var(--card-border-radius);
   max-height: 30rem;
+  border: 3px solid #1a3a6e;
+  box-shadow: 0 0 0 3px #bf0a30, 0 4px 16px rgb(0 0 0 / 15%);
 }
 
 .featured-article .featured-article-img-col p {
@@ -41,9 +43,10 @@
   gap: var(--gap-xs);
 }
 
-/* tag pill — uses .tag-pill utility from styles.css */
+/* tag pill — Cap's star-spangled style */
 .featured-article .tag-pill {
   width: fit-content;
+  color: #bf0a30;
 }
 
 /* also support em tag pills */
@@ -54,6 +57,7 @@
 
 .featured-article h2 {
   margin-top: var(--gap-sm);
+  color: #1a3a6e;
 }
 
 .featured-article .featured-article-content p:not(.tag-pill) {
@@ -67,7 +71,7 @@
   border-top: 1px solid var(--border-color-light);
 }
 
-/* style link as dark button */
+/* style link as Cap shield button — red, white & blue */
 .featured-article .featured-article-content p:last-child a:any-link {
   display: flex;
   align-items: center;
@@ -76,23 +80,26 @@
   font-size: var(--body-font-size-s);
   font-weight: 700;
   letter-spacing: 0.98px;
+  text-transform: uppercase;
   text-decoration: none;
   padding: var(--gap-xs) var(--gap-xl);
-  background-color: var(--dark-color);
-  color: var(--background-color);
+  background: linear-gradient(135deg, #1a3a6e, #244e8a);
+  color: #fff;
+  border: 2px solid #bf0a30;
   border-radius: var(--button-border-radius);
-  box-shadow: 3px 3px 0 var(--accent-color);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 3px 3px 0 #bf0a30;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
 .featured-article .featured-article-content p:last-child a:hover {
   transform: translateY(-2px);
-  box-shadow: 5px 5px 0 var(--accent-color);
+  box-shadow: 5px 5px 0 #bf0a30;
+  background: linear-gradient(135deg, #244e8a, #2d5fa0);
 }
 
 .featured-article .featured-article-content p:last-child a:active {
   transform: translateY(0);
-  box-shadow: 0 0 0 var(--accent-color);
+  box-shadow: 0 0 0 #bf0a30;
 }
 
 @media (width >= 768px) {
